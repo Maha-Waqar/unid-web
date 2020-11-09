@@ -1,0 +1,30 @@
+
+#PaymentMethod {
+  font-family: Consolas, cursive; 
+  vertical-align : inherit;
+  text-align: center;
+}
+
+.payment-header {
+  padding: 5px;
+  text-align: left;
+}
+
+.payment-radio {
+  text-align: left;
+}
+
+.payment-radio span {
+  font-size: 18px;
+}
+.payment-radio-btn {
+    width: 90%;
+}
+.fa-credit-card {
+  margin-left: 90px;
+  margin-right: 5px;
+  font-size: 20px;
+}
+.payment-credit-no {
+  color: gray;
+}

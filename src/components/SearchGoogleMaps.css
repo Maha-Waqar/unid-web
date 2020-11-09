@@ -1,0 +1,29 @@
+input::placeholder  {
+    padding-left: 20px;
+}
+.MuiInput-underline:hover:not(.Mui-disabled):before{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.87) !important;
+}
+
+.MuiInput-underline:after {
+    border-bottom: inherit !important;
+}
+
+.googlemap .MuiInputBase-root.MuiInput-root.MuiInput-underline.MuiInputBase-formControl.MuiInput-formControl {
+    background-color: white;
+    border: 1px solid #00000096;
+    border-radius: 8px;
+}
+
+.pac-item {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    padding-left: 19px !important
+}
+
+.pac-container {
+    width: 92% !important;
+    margin-left: 3% !important;
+    left: 0 !important;
+    margin-top: 8px;
+}

@@ -1,0 +1,9 @@
+export const actionsTypes = (id) => (
+    {
+        FETCH_RIDES_LIST : `FETCH_RIDES_LIST`,
+        FETCH_RIDES_LIST_SUCCESS : `FETCH_RIDES_LIST_SUCCESS`,
+        FETCH_RIDES_LIST_FAILURE : `FETCH_RIDES_LIST_FAILURE`,
+        RESET_RIDES_LIST: 'RESET_RIDES_LIST'
+    }
+)
+ 

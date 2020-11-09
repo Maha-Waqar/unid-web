@@ -1,0 +1,240 @@
+.topnav {
+  color:black;
+  z-index: 100;
+  padding-top:10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  background-color: transparent !important;
+}
+/* Centered section inside the top navigation */
+.topnav .fa-bars {
+  border-radius: 50%;
+  padding: 7px 7px 7px 7px;
+  box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+  background-color: white !important;
+}
+.home_page .home-container-map {
+  height: 100vh;
+}
+
+.topnav-sidebar {
+  width:250px;
+}
+
+.rider-profile {
+    background-image: url("/profile_bg.jpg");
+    text-align: left;
+}
+.rider-profile img {
+  border-radius: 50%;
+  max-width: 30%;
+  height: auto;
+  margin-top:40px;
+  margin-left:20px;
+  float:left;
+  margin-bottom:40px;
+
+}
+.rider-profile .rider-id {
+  padding-top:50px;
+  padding-left: 100px;
+  color:white;
+  margin-right:20px;
+}
+.rider-profile .point-reward {
+  padding-top:10px;
+  padding-bottom:40px;
+  padding-left: 100px;
+  color:white;
+  font-size:13px;
+  margin-right:20px;
+}
+
+.MuiList-root .MuiListItem-root{
+  margin-top:10px !important;
+  
+}
+
+/* ############# MAP ############ */
+.home-to-location, .home-from-location {
+  margin: 10px;
+}
+.home-map-submit {
+  border-radius: 20%;
+  padding: 3px;
+  text-align: center;
+  width: 90px;
+  border: 1px solid black;
+  background-color: #3adf16;
+  margin-top: 10px;
+}
+
+.locations-input {
+  position: absolute;
+  z-index: 9;
+  
+  top: 10px;
+  margin-left: 25px;
+  margin-right: 25px;  
+}
+
+.locations {
+  background-color:white;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+  padding:5px 10px 5px 10px;
+}
+
+.locations .icons img{
+  height:100%;
+  width: 100%;
+}
+
+.locations .to-from{
+  font-size:13px;
+  color:grey;
+  padding: 10px 0 0px 0;
+  margin: 0 0 0 0;
+}
+
+.locations .to-from-address{
+  font-size:13px;
+  color:black;
+  padding: 0 0 10px 0;
+  margin: 0 0 0 0;
+}
+
+.locations .fa-car{
+  color: #3adf16;
+  padding: 0 0 5px 0px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.locations .fa-heart{
+  color:red;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.locations .form-control {
+  border: 0;
+}
+
+
+.edit_location_button {
+  color: white !important;
+  background: #3adf16 !important;
+  border:none !important;
+  border-radius: 20px !important;
+  padding: 0 20px 0 20px !important;
+  margin: 0 0 0 0 !important;
+  font-size:13px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.suggested-rides {
+  position: relative;
+  bottom: 270px;
+  background-color:white;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+}
+
+.suggested-rides .title{
+  float:left;
+}
+
+.suggested-rides .view-all{
+  color:#3adf16;
+  text-align:right;
+}
+
+.suggested-rides .view-all p{
+  font-size:13px;
+  margin: 0 0 7px 0;
+}
+.suggested-rides .selected-car-types {
+  border:1px solid #3adf16 !important;
+  border-radius: 10px;
+  margin:0px 0px 0px 0px;
+  height: 60px;
+
+}
+
+.suggested-rides .selected-car-types img{
+  border-radius: 50%;
+  max-width: 80%;
+  height: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  
+}
+
+.suggested-rides .selected-car-types .selected-car-name p{
+  font-size:15px;
+  text-align:left;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.suggested-rides .selected-car-types .selected-car-price div{
+  text-align:right;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.suggested-rides .selected-car-types .selected-car-price p{
+  font-size:12px;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+
+.suggested-rides .selected-car-types .selected-car-price .original-price {
+  text-decoration:line-through;
+}
+
+
+.suggested-rides .rides_options p{
+  font-size:12px;  
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.suggested-rides .rides_options img{
+  max-width: 30%;
+  height: auto;
+  float:left;
+  margin-right: 5px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.suggested-rides .book_button {
+    color: white !important;
+    background: #3adf16 !important;
+    border:none !important;
+    
+}
+
+.suggested-rides .book_button:focus {
+  background: white !important;
+  color: #3adf16 !important;
+  font-weight:bolder !important;
+  
+}

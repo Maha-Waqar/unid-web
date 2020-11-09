@@ -1,0 +1,12 @@
+
+.MuiTab-textColorSecondary.Mui-selected {
+    color: black
+}
+
+.MuiTab-textColorSecondary.Mui-selected {
+    color: black !important
+}
+
+.MuiTabs-indicator {
+    background-color: #28a745 !important;
+}

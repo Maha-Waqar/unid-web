@@ -1,0 +1,50 @@
+#CreditCard {
+    font-family: Consolas, cursive; 
+    vertical-align : inherit;
+    text-align: center;
+}
+
+.cc-header {
+    padding: 5px;
+    text-align: left;
+}
+.cc-form {
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+    padding: 10px;
+    width: 80%;
+}
+.cc-form .form-control {
+    border-radius: 0px;
+
+}
+.MuiSvgIcon-root{
+    color: inherit;
+}
+.cc-expiry {
+    width: 155px;
+    display: inline-block;
+    margin-right: 20px;
+}
+.cc-cvv {
+    width: 100px;
+    display: inline-block;
+}
+
+.MuiFormLabel-root.Mui-focused {
+    color: #28a745 !important;
+}
+
+.overridecardcss{
+    width: 100%;
+}
+.visa, .mastercard, .paypal {
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+	width: 25%;
+	height: auto;
+	background-color: white;
+	cursor: pointer;
+	margin-right: 5%;
+	margin-bottom: 10%;
+}

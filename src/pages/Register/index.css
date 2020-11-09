@@ -1,0 +1,23 @@
+.MuiFormControl-root{
+    margin-top:20px !important;
+    width: 100%;
+}
+
+.MuiAvatar-colorDefault.custom {
+    color: #fafafa;
+    background-color: white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .4);
+    margin-left: 10px;
+}
+
+.MuiSvgIcon-root {
+    color: black
+}
+
+.MuiRadio-colorSecondary.Mui-checked {
+    color:#28a745 !important;
+}
+
+.register-form {
+    margin-left: 30px;
+}
