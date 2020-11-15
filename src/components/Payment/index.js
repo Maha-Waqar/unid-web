@@ -118,7 +118,6 @@ class CreditCard extends React.Component {
             }}
             classes={{root: classes.radio, checked: classes.checked}}
           >
-            <FormControlLabel value="cash" control={<Radio />} labelPlacement="start" label="Cash" />
             <FormControlLabel value="card" control={<Radio />} labelPlacement="start"
               classes={{
                 label: this.state.cardsList.length ? 'overridecardcss' : ''

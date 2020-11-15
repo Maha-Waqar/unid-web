@@ -45,7 +45,7 @@ function App(props) {
           
           <Route path="/login" exact render={(routerProps) => {
             const parsed = qs.parse(routerProps.location.search);
-            if(parsed.accesstoken) {
+            if(parsed.access_token) {
               return <Login id={"login"} />
             }
             if(props.appState.isUserLoggenIn) {
