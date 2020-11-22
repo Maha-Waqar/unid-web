@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "unid-web"
+  },
+  "targets": {
+    "unid-web": {
+      "hosting": {
+        "prod": [
+          "unid-web"
+        ],
+        "staging": [
+          "unid-web-staging"
+        ]
+      }
+    }
+  }
+}

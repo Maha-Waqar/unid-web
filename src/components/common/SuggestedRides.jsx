@@ -78,7 +78,7 @@ const initRide = {
 }
 
 const SuggestedRides = ({ carList,pickupCoor, dropoffCoor,setDropoffCoor, setPickupCoor ,searchRides={}, ...props }) => {
-    const [activeRide,setActiveRide] = useState(props.dispatchRideDetails  || {});
+    const [activeRide, setActiveRide] = useState(props.dispatchRideDetails  || {});
     const [isExpanded, setIsExpanded] = useState(false);
     const [showpopup, setShowpopup] = useState(false);
     const activeRideStatuses = ['1', '0', '9', '3'];
@@ -132,7 +132,13 @@ const SuggestedRides = ({ carList,pickupCoor, dropoffCoor,setDropoffCoor, setPic
     }, [props.dispatchRideDetails]);
 
     useEffect(() => {
-        if (props.resumeRide) {
+        if (
+            props.resumeRide &&
+            (
+                Object.keys(activeRide).length === 0 || 
+                !activeRide.isRideCreated 
+            )
+        ) {
             setTimeout(() => {
                 props.dispatchRide(props.resumeRide);
             },4000)
