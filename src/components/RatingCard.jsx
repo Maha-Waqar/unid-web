@@ -82,7 +82,8 @@ const RatingCard  = ({data={}, ...props}) => {
                                         if (addFav) {
                                             props.addFavourites(data.rider_id,data.driver_id);
                                         }
-                                        setIsSubmit(true);                                       
+                                        setIsSubmit(true);       
+                                        localStorage.clear();                                
                                         window.location.reload();
                                     }
                                 } 
