@@ -83,6 +83,7 @@ const RatingCard  = ({data={}, ...props}) => {
                                             props.addFavourites(data.rider_id,data.driver_id);
                                         }
                                         setIsSubmit(true);                                       
+                                        window.location.reload();
                                     }
                                 } 
                                 variant="contained"
