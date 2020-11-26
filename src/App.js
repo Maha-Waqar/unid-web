@@ -36,6 +36,7 @@ import { connect } from 'react-redux';
 import ResetPassword from './pages/ResetPassword';
 import * as qs from 'query-string';
 import PersonalInformation from "./pages/PersonalInformation";
+import { parse } from "date-fns";
 
 function App(props) {
   return (
@@ -73,8 +74,17 @@ function App(props) {
                 routerProps.history.push('/login');
               }
               const initRide = JSON.parse(localStorage.getItem('initialRide'));
-
               if (parsed.preauth_id) {
+                if (parsed.status === "FAILED") {
+                  routerProps.history.push({
+                    pathname: '/paymentfailure',
+                    state: {
+                      ...initRide,
+                      preauth_id:parsed.preauth_id, 
+                    }
+                  })
+                  return;
+                }
                 localStorage.setItem('initialRide',JSON.stringify({
                   ...initRide,
                   preauth_id:parsed.preauth_id, 
@@ -110,7 +120,7 @@ function App(props) {
               )
             }} 
           />
-          <Route path="/paymentFailure" 
+          <Route path="/paymentfailure" 
             exact
             render={() => {
               if(!props.appState.isUserLoggenIn) {
