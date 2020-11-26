@@ -29,6 +29,7 @@ export function dispatchRide(payload={}) {
         delete clonePayload.isSelected;
         delete clonePayload.image;
         delete clonePayload.seat_number;
+        delete clonePayload.preauth_id;
         
         clonePayload.ride_time = 'now';
         clonePayload.riding_time = moment().add(1,'minute').format("hh:mm");
