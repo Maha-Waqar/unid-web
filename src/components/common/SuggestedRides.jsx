@@ -136,8 +136,11 @@ const SuggestedRides = ({ carList,pickupCoor, dropoffCoor,setDropoffCoor, setPic
             props.resumeRide &&
             (
                 Object.keys(activeRide).length === 0 || 
-                !activeRide.isRideCreated 
-            )
+                (
+                    !activeRide.isRideCreated &&
+                    !activeRide.isRideFailed
+                )
+            ) 
         ) {
             setTimeout(() => {
                 props.dispatchRide(props.resumeRide);

@@ -20,27 +20,31 @@ function dispatchRideReducer(state={}, action) {
                 ...action.payload,
                 errorMessage: '',
                 isRideCreated: false,
-                isapiActive: true 
+                isapiActive: true ,
+                isRideFailed: false,
             }
         case DISPATCH_RIDE_SUCCESS:
             return {
                 ...state,
                 ...action.payload,
                 isapiActive: false,
-                isRideCreated: true
+                isRideCreated: true,
+                isRideFailed: false,
             }
         case DISPATCH_RIDE_FAILURE:
             return {
                 ...state,
                 ...action.payload,
                 isapiActive: false,
-                isRideCreated: false
+                isRideCreated: false,
+                isRideFailed: true,
             }
         case RESET_DISPATCH_RIDE:
             return {
                 ...state,
                 isRideCreated: false,
-                errorMessage: ''
+                errorMessage: '',
+                isRideFailed: false
             }
         default: 
             return state;
