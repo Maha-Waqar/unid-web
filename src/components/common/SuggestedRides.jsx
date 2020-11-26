@@ -5,6 +5,7 @@ import BackButton from '../../components/BackButton';
 import LinearProgress from './LinearProgress';
 import PhoneIcon from '@material-ui/icons/Phone';
 import Payment from '../Payment';
+import axios from 'axios';
 import {
     ExpansionPanel,
     ExpansionPanelSummary,
@@ -522,8 +523,23 @@ const SuggestedRides = ({ carList,pickupCoor, dropoffCoor,setDropoffCoor, setPic
             >
             <DialogTitle id="simple-dialog-title">
                 {
-                    activeRide.status === "0"  &&                
-                    <LinearProgress  timeInterval={2000}/>                       
+                    activeRide.status === "0"  &&  
+                    <>  
+                        <LinearProgress  timeInterval={2000}/>                       
+                        <Button onClick={() => {
+                            axios({
+                                method: 'post',
+                                url: `http://220.158.200.73/unid_corp/apis/payment_cancel_before_ride?amount=${selectedRide.price}&ride_id=${selectedRide.id}`,
+                                headers: {'Content-Type': 'multipart/form-data' }
+                              })
+                              .then(res => {
+                                console.log("post request data", res.data);
+                                localStorage.clear();
+                                location.reload();
+                              })
+                              .catch(err => console.warn(err));
+                        }}>Cancel</Button>
+                    </>
                 }
                 
                 {
