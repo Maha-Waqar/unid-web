@@ -478,11 +478,14 @@ const SuggestedRides = ({ carList,pickupCoor, dropoffCoor,setDropoffCoor, setPic
                             {
                                 isExpanded && 
                                 Object.values(carList).map((carData) => {
-                                    const rdData = fareList.find((data) => (data.carId === carData.id)) || {};
+                                    let rdData = fareList.find((data) => (data.carId === carData.id)) || {};
+                                    rdData = Object.assign({},rdData);
+                                    delete rdData.id;
                                     return (
                                         <Grid 
                                             onClick={(e)=> {
                                                 e.preventDefault();
+                                                delete 
                                                 setSelectedRide({
                                                     ...selectedRide,
                                                     ...rdData
