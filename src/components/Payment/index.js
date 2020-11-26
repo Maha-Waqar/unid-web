@@ -61,13 +61,12 @@ class CreditCard extends React.Component {
   }
 
   payNow = () => {
-    const { appState } = this.props;
+    const { appState, selectedRide } = this.props;
     switch (this.state.paymentMethod) {
       case "card": {
         const formData = new FormData();
         formData.append('passenger_id',appState && appState.userData && appState.userData.id )
-        console.log(this.props);
-        formData.append('transaction_amount', '000000000123')
+        formData.append('transaction_amount', selectedRide.price)
         Axios({
           method: 'post',
           url: "http://220.158.200.73/unid_corp/apis/passenger_payement_gateway",
