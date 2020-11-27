@@ -145,6 +145,7 @@ const SuggestedRides = ({ carList,pickupCoor, dropoffCoor,setDropoffCoor, setPic
         ) {
             setTimeout(() => {
                 props.dispatchRide(props.resumeRide);
+                localStorage.removeItem('initialRide');
             },4000)
         }
     },[]);
@@ -527,13 +528,7 @@ const SuggestedRides = ({ carList,pickupCoor, dropoffCoor,setDropoffCoor, setPic
                     <>  
                         <LinearProgress  timeInterval={2000}/>                       
                         <Button onClick={() => {
-                            axios({
-                                method: 'post',
-                                url: `http://220.158.200.73/unid_corp/apis/payment_cancel_before_ride?amount=${selectedRide.price}&ride_id=${selectedRide.id}`,
-                                headers: {'Content-Type': 'multipart/form-data' }
-                              })
-                              .then(res => {
-                                console.log("post request data", res.data);
+                            axios.get(`http://220.158.200.73/unid_corp/apis/payment_cancel_before_ride?amount=${selectedRide.price}&ride_id=${selectedRide.id}`).then(res => {
                                 localStorage.removeItem('initialRide');
                                 window.location.reload();
                               })
