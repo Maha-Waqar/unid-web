@@ -535,7 +535,7 @@ const SuggestedRides = ({ carList,pickupCoor, dropoffCoor,setDropoffCoor, setPic
                               .then(res => {
                                 console.log("post request data", res.data);
                                 localStorage.clear();
-                                location.reload();
+                                window.location.reload();
                               })
                               .catch(err => console.warn(err));
                         }}>Cancel</Button>
