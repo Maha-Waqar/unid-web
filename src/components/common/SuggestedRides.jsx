@@ -134,7 +134,7 @@ const SuggestedRides = ({ carList,pickupCoor, dropoffCoor,setDropoffCoor, setPic
 
     useEffect(() => {
         if (
-            props.resumeRide &&
+            props.resumeRide && localStorage.getItem('initialRide') && 
             (
                 Object.keys(activeRide).length === 0 || 
                 (
