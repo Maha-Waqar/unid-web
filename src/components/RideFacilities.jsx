@@ -19,6 +19,13 @@ const IconMap = {
     promoCode: ClosedCaption,
     notes: Comment
 }
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = dd + '/' + mm + '/' + yyyy;
+
 
 const detailsList =  {
     fields: [
@@ -32,17 +39,9 @@ const detailsList =  {
         // },
         {
             name:'rideDate',
-            label: 'Ride Date',
+            label: `Ride Date:  ${today} `,
         },
-        {
-            name:'favouriteDriver',
-            label: 'Favourite Driver',
-            value: ''
-        },
-        {
-            name:'promoCode',
-            label: 'Promocode',
-        },
+       
         {
             name:'notes',
             label: 'Notes',
@@ -58,12 +57,26 @@ function RideFacilities (props) {
         <Grid container style={{flexWrap: "wrap", marginTop: '15px' }}>
             {
                detailsList.fields.map(({name, label}) => (
-                    <Grid item style={{marginBottom: '5px', marginRight: '3px', display: 'inline-flex', width: '47%'}}
-                        onClick={()=>{props.setActiveRideFacility(name)}}
-                    >
+               
+                   name === "rideDate" ? 
+                    
+                    <Grid item style={{marginBottom: '5px', marginRight: '3px', display: 'inline-flex', width: '47%'}}>
+                        
                         <Grid style={{marginRight: '4px' }}>{renderIcon(name)}</Grid>
                         <Grid style={{fontSize: 'small'}}>{label}</Grid>
                     </Grid>
+                    
+                   :
+                   
+                  <Grid item style={{marginBottom: '5px', marginRight: '3px', display: 'inline-flex', width: '47%'}}
+                    onClick={()=>{props.setActiveRideFacility(name)}}
+                    >                    
+                    <Grid style={{marginRight: '4px' }}>{renderIcon(name)}</Grid>
+                    <Grid style={{fontSize: 'small'}}>{label} </Grid>
+                  </Grid>
+                   
+               
+                   
                ))
            }
         </Grid>

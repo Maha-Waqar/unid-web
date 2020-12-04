@@ -39,6 +39,8 @@ const HistoryList = (props) => {
                     rideList.map((data) => (
                         <Grid style={{width: "calc(100% - 20px)", marginBottom: '20px', margin: 'inherit auto'}}>
                             <History 
+                                date = {data.riding_date}
+                                time = {data.riding_time}
                                 fromLabel={data.pickup_location}
                                 toLabel={data.drop_location}
                                 footer= {

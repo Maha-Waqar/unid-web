@@ -13,10 +13,10 @@ const fields = [
         label: 'User Email',
         name: 'rider_email'
     },
-    {
-        label: 'Rewards Points',
-        name: 'reward_point'
-    },
+    // {
+    //     label: 'Rewards Points',
+    //     name: 'reward_point'
+    // },
     {
         label: 'ReferralCode',
         name:'referral_id'

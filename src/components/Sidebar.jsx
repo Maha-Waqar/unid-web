@@ -22,24 +22,26 @@ const SideList = ({toggleDrawer, history, location, userLogout, userData }) => (
       onClick={toggleDrawer}
       onKeyDown={toggleDrawer}
     >
+
       <div className="rider-profile">
         <div className="profile_id" onClick={()=>{history.push('/personalInformation')}}>
           <img src="../../../profile_pic.png" alt="Avatar"/></div>
         <div className="rider-info">      
         <div className="rider-id">{userData.name}</div>
-          <div className="point-reward">{userData.reward_point} Points | Reward</div>
+              <div className="point-reward">{userData.rider_name} </div>
+          {/* <div className="point-reward">{userData.reward_point} Points | Reward</div> */}
         </div>
       </div>
       <List>
-        <ListItem button key='wallet'>
+        {/* <ListItem button key='wallet'>
           <ListItemIcon><i className="fa fa-wallet"></i></ListItemIcon>
           <ListItemText primary='Wallet' />
-        </ListItem>
+        </ListItem> */}
         <ListItem button key='history' onClick={()=>{history.push('/history')}}>
           <ListItemIcon><i className="fa fa-history"></i></ListItemIcon>
           <ListItemText primary='History' />
         </ListItem>
-        <ListItem button key='favourites' onClick={()=>{history.push('/favourites')}}>
+        {/* <ListItem button key='favourites' onClick={()=>{history.push('/favourites')}}>
           <ListItemIcon><i className="fa fa-heart"></i></ListItemIcon>
           <ListItemText primary='Favourites' />
         </ListItem>
@@ -50,11 +52,11 @@ const SideList = ({toggleDrawer, history, location, userLogout, userData }) => (
         <ListItem button key='notification' onClick={()=>{history.push('/notifications')}}>
           <ListItemIcon><i className="fa fa-bell" aria-hidden="true"></i></ListItemIcon>
           <ListItemText primary='Notification' />
-        </ListItem>
+        </ListItem> 
         <ListItem button key='emergency'>
           <ListItemIcon><i className="fa fa-bars" aria-hidden="true"></i></ListItemIcon>
           <ListItemText primary='Emergency' />
-        </ListItem>
+        </ListItem>*/}
         <ListItem button key='about-us' onClick={()=>{history.push('/about-us')}}>
           <ListItemIcon><i className="fa fa-info-circle" aria-hidden="true"></i></ListItemIcon>
           <ListItemText primary='About Us' />
@@ -84,8 +86,10 @@ const SideBar = (props) => {
       event.stopPropagation(); 
       setLeft(!left);
     }
+    
 
     const userData = props.appState && props.appState.userData;
+    
     return (
       <React.Fragment>
         <div onClick={toggleDrawer} className="sidebar">

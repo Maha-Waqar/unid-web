@@ -34,6 +34,12 @@ const styles = {
   checked: {}
 };
 
+function padLeadingZeros(num, size) {
+  var s = num+"";
+  while (s.length < size) s = "0" + s;
+  return s;
+}
+
 class CreditCard extends React.Component {
   constructor(props) {
     super(props);
@@ -66,7 +72,11 @@ class CreditCard extends React.Component {
       case "card": {
         const formData = new FormData();
         formData.append('passenger_id',appState && appState.userData && appState.userData.id )
-        formData.append('transaction_amount', selectedRide.price)
+        const amount = selectedRide.price;        
+        var newnumber = amount.toString().replace(".", "");
+        const formattedNum = padLeadingZeros(newnumber, 12);
+        formData.append('transaction_amount', formattedNum)
+      
         Axios({
           method: 'post',
           url: "http://220.158.200.73/unid_corp/apis/passenger_payement_gateway",

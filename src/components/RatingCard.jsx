@@ -63,6 +63,18 @@ const RatingCard  = ({data={}, ...props}) => {
                             </Typography>
                             
                         </Grid>
+                        <Grid>
+                            <Button 
+                                fullWidth
+                                onClick={                                                                
+                                    history.push('/')                                      
+                                } 
+                                variant="contained"
+                                style={{ backgroundColor: "rgb(31, 199, 31)"}}
+                            >
+                                Close
+                            </Button>
+                        </Grid>
                     </Grid> 
                 :
                     <>
@@ -85,6 +97,7 @@ const RatingCard  = ({data={}, ...props}) => {
                                         setIsSubmit(true);       
                                         localStorage.clear();                                
                                         window.location.reload();
+                                        return false;
                                     }
                                 } 
                                 variant="contained"

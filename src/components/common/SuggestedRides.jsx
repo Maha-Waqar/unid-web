@@ -6,6 +6,7 @@ import LinearProgress from './LinearProgress';
 import PhoneIcon from '@material-ui/icons/Phone';
 import Payment from '../Payment';
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 import {
     ExpansionPanel,
     ExpansionPanelSummary,
@@ -82,6 +83,7 @@ const SuggestedRides = ({ carList,pickupCoor, dropoffCoor,setDropoffCoor, setPic
     const [activeRide, setActiveRide] = useState(props.dispatchRideDetails  || {});
     const [isExpanded, setIsExpanded] = useState(false);
     const [showpopup, setShowpopup] = useState(false);
+    const history = useHistory();
     const activeRideStatuses = ['1', '0', '9', '3'];
     let prevDispatchRideDetails = useRef(activeRide);
     let updateRide = {
@@ -184,6 +186,7 @@ const SuggestedRides = ({ carList,pickupCoor, dropoffCoor,setDropoffCoor, setPic
                 price: ride.price,
                 image: ride.image,
                 seat_number: ride.seat_number,
+                ride_id: ride.id,
             };
             if (props.directionsServiceResponse) {
                 var directionsData = props.directionsServiceResponse.routes[0].legs[0]
@@ -277,7 +280,12 @@ const SuggestedRides = ({ carList,pickupCoor, dropoffCoor,setDropoffCoor, setPic
                 {
                     renderFields(selectedRide, setSelectedRide)
                 }
+                <Grid style={{paddingLeft:60}}>
+                    <Typography variant="h4" >Ride Type</Typography>
+                    <input type="radio" checked readOnly/> Ride now
+                </Grid>
             </Grid>
+          
         )
     }
 
@@ -349,6 +357,7 @@ const SuggestedRides = ({ carList,pickupCoor, dropoffCoor,setDropoffCoor, setPic
 
 
     return (
+      
         <>
             <Sidebar userLogout={props.userLogout}/>
             <ReactGoogleMaps
@@ -522,15 +531,19 @@ const SuggestedRides = ({ carList,pickupCoor, dropoffCoor,setDropoffCoor, setPic
                     paper: 'custom-dialog-pop-up'
                 }}
             >
+                   
             <DialogTitle id="simple-dialog-title">
                 {
                     activeRide.status === "0"  &&  
                     <>  
-                        <LinearProgress  timeInterval={2000}/>                       
+                        <LinearProgress  timeInterval={2000}/>  
+                                         
                         <Button onClick={() => {
-                            axios.get(`http://220.158.200.73/unid_corp/apis/payment_cancel_before_ride?amount=${selectedRide.price}&ride_id=${selectedRide.id}`).then(res => {
-                                localStorage.removeItem('initialRide');
-                                window.location.reload();
+                           
+                            axios.get(`http://220.158.200.73/unid_corp/apis/payment_cancel_before_ride?amount=${selectedRide.price}&ride_id=${selectedRide.ride_id}`).then(res => {
+                               
+                                localStorage.removeItem('initialRide');                                
+                                history.push('/')
                               })
                               .catch(err => console.warn(err));
                         }}>Cancel</Button>

@@ -19,6 +19,8 @@ import {
 import truncate from 'lodash/truncate';
 
 export const History = ({
+    date,
+    time,
     cancelEventHandler,
     fromLocationName,
     toLocationName,
@@ -51,7 +53,15 @@ export const History = ({
         }
         
         <CardContent style={{paddingBottom:0}}>
+   
+            <Grid container direction="row" justify="space-between" style={{height: '100%', marginLeft: '5px', marginBottom: '10px'}}>
+                <Typography variant="subtitle1" style={{color: 'darkgrey'}}>
+                        {date} : {time}
+                </Typography>
+            </Grid>
+              
             <Grid direction="row" container justify="stretch"  style={{flexWrap: "inherit" }}>
+              
                 <Grid item>
                     <Grid direction="column" container>
                         <GpsFixedIcon style={{color:"#fb5516ed"}} />
