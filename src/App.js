@@ -65,9 +65,10 @@ const Wallet = React.memo( (props) => {
         preauth_id:parsed.preauth_id, 
       }))     
     }
-    axios.get(`http://220.158.200.73/unid_corp/apis/save_ride_payments?preauth_id=${parsed.preauth_id}&ride_id=${initRide.rider_id}&payment_type=WALLET`)
+    
+    axios.get(`https://unidtest.com.my/apis/save_ride_payments?preauth_id=${parsed.preauth_id}&ride_id=${initRide.ride_id}&payment_type=WALLET`)
       .then((saveRides) => {   
-        return axios.post(`http://220.158.200.73/unid_corp/apis/verify_token?token=${usertoken}`);
+        return axios.post(`https://unidtest.com.my/apis/verify_token?token=${usertoken}`);
       }).then((response) => {
         if (response.data.status !== 'error') {
           props.history.push({
@@ -198,8 +199,9 @@ function App(props) {
                           preauth_id:parsed.preauth_id, 
                         }))
                       }
-                      axios.get(`http://220.158.200.73/unid_corp/apis/save_ride_payments?preauth_id=${parsed.preauth_id}&ride_id=${initRide.id}&payment_type=UPP`).then(() => {
-                        axios.post(`http://220.158.200.73/unid_corp/apis/verify_token?token=${usertoken}`).then((res) => {
+                 
+                      axios.get(`https://unidtest.com.my/apis/save_ride_payments?preauth_id=${parsed.preauth_id}&ride_id=${initRide.ride_id}&payment_type=UPP`).then(() => {
+                        axios.post(`https://unidtest.com.my/apis/verify_token?token=${usertoken}`).then((res) => {
                           if (res.data.status !== "error") {
                             routerProps.history.push({
                               pathname: '/',

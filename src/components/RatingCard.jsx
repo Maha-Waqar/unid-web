@@ -63,18 +63,7 @@ const RatingCard  = ({data={}, ...props}) => {
                             </Typography>
                             
                         </Grid>
-                        <Grid>
-                            <Button 
-                                fullWidth
-                                onClick={                                                                
-                                    history.push('/')                                      
-                                } 
-                                variant="contained"
-                                style={{ backgroundColor: "rgb(31, 199, 31)"}}
-                            >
-                                Close
-                            </Button>
-                        </Grid>
+                        
                     </Grid> 
                 :
                     <>
@@ -94,10 +83,10 @@ const RatingCard  = ({data={}, ...props}) => {
                                         if (addFav) {
                                             props.addFavourites(data.rider_id,data.driver_id);
                                         }
-                                        setIsSubmit(true);       
-                                        localStorage.clear();                                
-                                        window.location.reload();
-                                        return false;
+                                        setIsSubmit(true);    
+                                        localStorage.removeItem('initialRide')          
+                                        window.location.reload(); 
+                                        //localStorage.clear();                                      
                                     }
                                 } 
                                 variant="contained"

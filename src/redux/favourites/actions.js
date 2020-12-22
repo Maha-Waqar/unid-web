@@ -13,7 +13,7 @@ export function getFavouriteDrivers(payload={}, id) {
     return (dispatch, getState) => {
         const {appState ={}} = getState();
 
-        axios.get('http://220.158.200.73/unid_corp/apis/favorite_get', {
+        axios.get('https://unidtest.com.my/apis/favorite_get', {
             params: {
               ID: appState.userData && appState.userData.id
             },

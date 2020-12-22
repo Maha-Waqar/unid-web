@@ -27,7 +27,7 @@ export function fetchRidesList(payload={}) {
         const { dispatchRideDetails } = getState();
         const { appState } = getState();
         axios.get(
-            'http://220.158.200.73/unid_corp/apis/riders_get',
+            'https://unidtest.com.my/apis/riders_get',
             { 
                 params: {
                     rider_id: appState && appState.userData && appState.userData.id 

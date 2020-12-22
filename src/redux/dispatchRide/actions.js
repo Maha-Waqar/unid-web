@@ -30,10 +30,11 @@ export function dispatchRide(payload={}) {
         delete clonePayload.image;
         delete clonePayload.seat_number;
         delete clonePayload.preauth_id;
+        delete clonePayload.ride_id;
         
         clonePayload.ride_time = 'now';
         clonePayload.riding_time = moment().add(1,'minute').format("hh:mm");
-
+        console.log(clonePayload);
         dispatch({
             type: DISPATCH_RIDE,
             payload: {
@@ -42,7 +43,7 @@ export function dispatchRide(payload={}) {
         });
 
         axios.post(
-            'http://220.158.200.73/unid_corp/apis/dispatches',
+            'https://unidtest.com.my/apis/dispatches',
             qs.stringify(clonePayload),
             {
                 headers: {
@@ -51,6 +52,7 @@ export function dispatchRide(payload={}) {
                 }
             }
         ).then((res) => {
+          
             if ( res.data.status === 1 && res.data.data) {
                 dispatch({
                     type: DISPATCH_RIDE_SUCCESS,
@@ -119,15 +121,27 @@ export const fetchRideDetails  =  async(dispatch, rider_id, DISPATCH_RIDE_SUCCES
     const pollRideDetatails = setInterval(()=> {
         
         axios.get(
-            'http://220.158.200.73/unid_corp/apis/riders_get',
+            'https://unidtest.com.my/apis/riders_get',
             {
                 params: {
                   rider_id
                 }
             }
         ).then((res) => { 
+            if(res.data.status === 11){
+                if (localStorage.getItem('is_cancelled') === 'true')
+                {
+                    clearInterval(pollRideDetatails);
+                    toast.error("Ride Cancelled", {
+                        position: "bottom-center",
+                        autoClose: true
+                    });
+                    return;
+                }
+            }
             if(res.data.status === 1) {
                 let currentRide;
+                
 
                 if (activeRide)
                     currentRide = res.data.data.find((rD)=> {

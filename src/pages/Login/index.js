@@ -35,7 +35,7 @@ function Login(props) {
 
   useEffect(() => {
     if (parsed.access_token) {
-      axios.get(`http://220.158.200.73/unid_corp/apis/verify_token?token=${parsed.access_token}`).then((res) => {
+      axios.get(`https://unidtest.com.my/apis/verify_token?token=${parsed.access_token}`).then((res) => {
         if (res.data.status !== "error") {
           userSuccess(res.data.user_data);
           localStorage.setItem('userSessionData',JSON.stringify(res.data.user_data));

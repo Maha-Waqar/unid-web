@@ -79,7 +79,7 @@ class CreditCard extends React.Component {
       
         Axios({
           method: 'post',
-          url: "http://220.158.200.73/unid_corp/apis/passenger_payement_gateway",
+          url: "https://unidtest.com.my/apis/passenger_payement_gateway",
           data: formData,
           headers: {'Content-Type': 'multipart/form-data' }
         })
@@ -95,10 +95,10 @@ class CreditCard extends React.Component {
       }
       case "gopayz": {
         const userToken = localStorage.getItem('userlogintoken');
-        Axios.get(`http://220.158.200.73/unid_corp/apis/verify_token?token=${userToken}`).then((res) => {
+        Axios.get(`https://unidtest.com.my/apis/verify_token?token=${userToken}`).then((res) => {
           if (res.data.status !== "error") {
             localStorage.setItem('initialRide', JSON.stringify(this.props.selectedRide));
-            window.location.href= `http://220.158.200.73/unid_corp/apis/gopayz_preauth_payment?amount=${this.props.selectedRide.price}&token=${userToken}`
+            window.location.href= `https://unidtest.com.my/apis/gopayz_preauth_payment?amount=${this.props.selectedRide.price}&token=${userToken}`
           }
         }).catch((error) => {
           console.log("token not matched", error)

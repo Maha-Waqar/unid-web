@@ -24,7 +24,7 @@ export function searchRides(apiPayload, id) {
             headers: {
                 'Access-Control-Allow-Origin': '*',
             },
-            url: 'http://220.158.200.73/unid_corp/apis/ride_fare',
+            url: 'https://unidtest.com.my/apis/ride_fare',
             data: bodyFormData
         }).then((res) => {
           if (res.status === 200 && res.data.priceData) {

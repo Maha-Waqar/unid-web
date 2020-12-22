@@ -23,7 +23,7 @@ export function userRegister(payload={}, id) {
             headers: {
                 'Access-Control-Allow-Origin': '*',
             },
-            url: 'http://220.158.200.73/unid_corp/apis/passenger_register',
+            url: 'https://unidtest.com.my/apis/passenger_register',
             data: bodyFormData
         }).then((res) => {
           if (res.status === 200 && res.data && res.data.status === 1) {

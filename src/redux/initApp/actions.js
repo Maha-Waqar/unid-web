@@ -12,7 +12,7 @@ export function carTypeList(payload={}) {
             headers: {
                 'Access-Control-Allow-Origin': '*',
             },
-            url: 'http://220.158.200.73/unid_corp/apis/car_type',
+            url: 'https://unidtest.com.my/apis/car_type',
         }).then((res) => {
           if (res.status === 200) {
                 dispatch({

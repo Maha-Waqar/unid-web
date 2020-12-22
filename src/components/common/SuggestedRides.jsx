@@ -204,6 +204,7 @@ const SuggestedRides = ({ carList,pickupCoor, dropoffCoor,setDropoffCoor, setPic
     const renderFields = ( currentState, updateFun ) => {
         switch(activeRideFacility) {
             case 'paymentMethods':
+
                 return <Payment  selectedRide={selectedRide} userData={props.appState}/>
             case 'notes':
                 return (
@@ -270,21 +271,31 @@ const SuggestedRides = ({ carList,pickupCoor, dropoffCoor,setDropoffCoor, setPic
     
     if (activeRideFacility) {
         return (
+
+            activeRideFacility === 'paymentMethods'?
             <Grid style={{ position: 'relative' }}>
                 <div
                     onClick={(e)=>{e.preventDefault(); setActiveRideFacility(null)}}
                 >
                 <BackButton />
-                </div>
-                
+                </div>                
                 {
                     renderFields(selectedRide, setSelectedRide)
-                }
-                <Grid style={{paddingLeft:60}}>
-                    <Typography variant="h4" >Ride Type</Typography>
-                    <input type="radio" checked readOnly/> Ride now
-                </Grid>
+                }          
             </Grid>
+            :
+            <Grid style={{ position: 'relative' }}>
+            <div
+                onClick={(e)=>{e.preventDefault(); setActiveRideFacility(null)}}
+            >
+            <BackButton />
+            </div>           
+            
+            <Grid style={{paddingLeft:60}}>
+                <Typography variant="h4" >Ride Type</Typography>
+                <input type="radio" checked readOnly/> Ride now
+            </Grid>
+        </Grid>
           
         )
     }
@@ -539,11 +550,19 @@ const SuggestedRides = ({ carList,pickupCoor, dropoffCoor,setDropoffCoor, setPic
                         <LinearProgress  timeInterval={2000}/>  
                                          
                         <Button onClick={() => {
-                           
-                            axios.get(`http://220.158.200.73/unid_corp/apis/payment_cancel_before_ride?amount=${selectedRide.price}&ride_id=${selectedRide.ride_id}`).then(res => {
-                               
-                                localStorage.removeItem('initialRide');                                
-                                history.push('/')
+                            
+                            axios.get(`https://unidtest.com.my/apis/payment_cancel_before_ride?amount=${selectedRide.price}&ride_id=${selectedRide.ride_id}`).then(res => {
+                                console.log("Cancel is clicked");
+                                console.log(res.data.payement_gateway_url);
+                                const url = res.data.payement_gateway_url
+                              
+                                axios.post(url).then(res => {                                    
+                                    console.log("I am inside cancel");
+                                    console.log(res);
+                                    localStorage.removeItem('initialRide');                                                             
+                                    history.push('/');
+                               }).catch(err => console.warn(err));
+                                
                               })
                               .catch(err => console.warn(err));
                         }}>Cancel</Button>

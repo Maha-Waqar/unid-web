@@ -32,7 +32,7 @@ export function userLogin(payload={}, id) {
             headers: {
                 'Access-Control-Allow-Origin': '*',
             },
-            url: 'http://220.158.200.73/unid_corp/apis/passenger_login',
+            url: 'https://unidtest.com.my/apis/passenger_login',
             data: bodyFormData
         }).then((res) => {
           if (res.status === 200 && res.data.message === "Login Successfully!") {

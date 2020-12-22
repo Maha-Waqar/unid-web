@@ -94,7 +94,7 @@ const Home = (props) => {
   useEffect(() => {
     const parsed = qs.parse(location.search);
     if (parsed.token) {
-      axios.post(`http://220.158.200.73/unid_corp/apis/verify_token?token=${parsed.token}`).then((res) => {
+      axios.post(`https://unidtest.com.my/apis/verify_token?token=${parsed.token}`).then((res) => {
         if (res.data.status !== "error") {
           localStorage.setItem('userlogintoken',parsed.token);
           history.push('/');

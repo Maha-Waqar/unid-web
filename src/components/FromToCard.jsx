@@ -56,7 +56,7 @@ export const History = ({
    
             <Grid container direction="row" justify="space-between" style={{height: '100%', marginLeft: '5px', marginBottom: '10px'}}>
                 <Typography variant="subtitle1" style={{color: 'darkgrey'}}>
-                        {date} : {time}
+                        {date}  {time}
                 </Typography>
             </Grid>
               
